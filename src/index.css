@@ -1,0 +1,112 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Industrial checkered top strip matching reference screenshots */
+.industrial-top-strip {
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #0b1324 0px,
+    #0b1324 18px,
+    #d94e14 18px,
+    #d94e14 34px,
+    #f59e0b 34px,
+    #f59e0b 46px,
+    #1e293b 46px,
+    #1e293b 62px
+  );
+}
+
+/* Subtle diagonal stripe canvas for login screen */
+.login-diagonal-bg {
+  background-color: #f3f5f8;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(15, 23, 42, 0.028) 0px,
+    rgba(15, 23, 42, 0.028) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+.dark .login-diagonal-bg {
+  background-color: #070b14;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+/* Clean custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.45);
+}
+
+/* Print Styles for Notas de Venta, Proformas, and Órdenes de Corte */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-document,
+  #printable-document * {
+    visibility: visible;
+  }
+  #printable-document {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 20px;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

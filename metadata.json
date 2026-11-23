@@ -1,0 +1,6 @@
+{
+  "name": "ACEROCAL — Sistema de Ventas & Fábrica de Calaminas",
+  "description": "Sistema integral de ventas POS mostrador, configuración de colores RAL y calibres, corte a medida, control de bobinas multi-sucursal y Pago QR BNB para fábrica de calaminas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
